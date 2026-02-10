@@ -1,0 +1,40 @@
+{
+  "name": "support-package",
+  "version": "1.0.0",
+  "description": "Support page functionality for Next.js applications",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs && npm run build:assets",
+    "build:esm": "tsc && tsc-alias -p tsconfig.json --dir dist/esm",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs && tsc-alias -p tsconfig.json --dir dist/cjs",
+    "build:assets": "copyfiles -u 1 \"src/**/*.css\" dist/esm && copyfiles -u 1 \"src/**/*.css\" dist/cjs",
+    "format": "prettier . --write"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@dexcomit/web-ui-lib": "^2025.9.45",
+    "@dexcomit/web-util-lib": "^0.0.19",
+    "formik": "^2.2.9",
+    "next-translate": "^1.6.0",
+    "react-datepicker": "^7.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "copyfiles": "^2.4.1",
+    "prettier": "^3.0.0",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
