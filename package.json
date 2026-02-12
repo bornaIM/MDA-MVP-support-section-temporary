@@ -25,7 +25,8 @@
     "@dexcomit/web-util-lib": "^0.0.19",
     "formik": "^2.2.9",
     "next-translate": "^1.6.0",
-    "react-datepicker": "^7.6.0"
+    "react-datepicker": "^7.6.0",
+    "@dexcomit/web-vendor-framework": "^2026.3.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
