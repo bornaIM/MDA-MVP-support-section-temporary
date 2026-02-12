@@ -29,12 +29,13 @@
     "@dexcomit/web-vendor-framework": "^2026.3.5"
   },
   "devDependencies": {
+    "@types/node": "^20.11.24",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "copyfiles": "^2.4.1",
     "prettier": "^3.0.0",
     "tsc-alias": "^1.8.8",
-    "typescript": "^5.0.0"
+    "typescript": "^4.5.2"
   },
   "author": "",
   "license": "ISC"

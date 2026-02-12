@@ -12,7 +12,6 @@ interface RadioItemProps {
 
 export function RadioItem({ value, text, onClick}: RadioItemProps) {
     return (
-        // @ts-ignore
         <Radio as={GridItem} value={value}>
             <TextBlock
                 onClick={() => {onClick && onClick()}}

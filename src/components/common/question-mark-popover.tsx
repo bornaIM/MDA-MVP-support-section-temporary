@@ -9,7 +9,6 @@ export default function QuestionMarkPopover({content}: { content: string | React
     const { t } = useTranslation();
     return (
         <Popover content={content}>
-            {/* @ts-ignore */}
             <IconButton aria-label={t('common:popover.ariaLabel')} icon={<IconQuestion color="var(--chakra-colors-black)" />} />
         </Popover>
     );

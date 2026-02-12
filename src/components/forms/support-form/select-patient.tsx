@@ -19,8 +19,7 @@ export function SelectPatient({ selectedPatient, setSelectedPatient }: SelectPat
 
     const { data: profile } = useProfile();
 
-    const serializeProfiles = (profiles: (Profile | null | undefined)[]) => 
-        profiles.map(p => p!.id).sort().join(',');
+    const serializeProfiles = (profiles: (Profile | null | undefined)[]) => profiles.filter(Boolean).map(p => p!.id).sort().join(','); // Safe filtering
 
     useEffect(() => {
         const newProfileList = [profile, ...(profile?.dependentsList || [])].filter(Boolean) as Profile[];
