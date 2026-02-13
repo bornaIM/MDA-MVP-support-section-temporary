@@ -1,5 +1,5 @@
 {
-  "name": "support-package",
+  "name": "@ingemark/support-package",
   "version": "1.0.0",
   "description": "Support page functionality for Next.js applications",
   "main": "dist/cjs/index.js",
@@ -11,6 +11,9 @@
       "require": "./dist/cjs/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build:dev": "npm run build && npm pack && cd ~/programming/web-mda-site && npm i ~/programming/prototype/support-package-1.0.0.tgz",
     "build": "npm run build:esm && npm run build:cjs && npm run build:assets",
@@ -19,15 +22,18 @@
     "build:assets": "copyfiles -u 1 \"src/**/*.css\" dist/esm && copyfiles -u 1 \"src/**/*.css\" dist/cjs",
     "format": "prettier . --write"
   },
+  "dependencies": {
+    "react-datepicker": "^7.6.0"
+  },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@dexcomit/web-ui-lib": "^2025.9.45",
     "@dexcomit/web-util-lib": "^0.0.19",
+    "@dexcomit/web-vendor-framework": "^2026.3.5",
     "formik": "^2.2.9",
     "next-translate": "^1.6.0",
-    "react-datepicker": "^7.6.0",
-    "@dexcomit/web-vendor-framework": "^2026.3.5"
+    "react-datepicker": "^7.6.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
