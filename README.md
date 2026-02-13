@@ -21,7 +21,7 @@ const config = withConfig({
 ...
 ```
 
-Run `npm run build:dev` and run this command in the project from which you're importing support-package:
+Edit for your path and run `npm run build:dev` and run this command in the project from which you're importing support-package:
 ```
 npm i PATH_TO_TGZs
 ```
