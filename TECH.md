@@ -1,0 +1,1 @@
+TODO researach side effects: from package.json: "sideEffects": ["**/*.css"]

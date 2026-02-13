@@ -12,6 +12,7 @@
     }
   },
   "scripts": {
+    "build:dev": "npm run build && npm pack && cd ~/programming/web-mda-site && npm i ~/programming/prototype/support-package-1.0.0.tgz",
     "build": "npm run build:esm && npm run build:cjs && npm run build:assets",
     "build:esm": "tsc && tsc-alias -p tsconfig.json --dir dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && tsc-alias -p tsconfig.json --dir dist/cjs",
@@ -25,15 +26,17 @@
     "@dexcomit/web-util-lib": "^0.0.19",
     "formik": "^2.2.9",
     "next-translate": "^1.6.0",
-    "react-datepicker": "^7.6.0"
+    "react-datepicker": "^7.6.0",
+    "@dexcomit/web-vendor-framework": "^2026.3.5"
   },
   "devDependencies": {
+    "@types/node": "^20.11.24",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "copyfiles": "^2.4.1",
     "prettier": "^3.0.0",
     "tsc-alias": "^1.8.8",
-    "typescript": "^5.0.0"
+    "typescript": "^4.5.2"
   },
   "author": "",
   "license": "ISC"

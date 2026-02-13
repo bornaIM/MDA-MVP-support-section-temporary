@@ -10,3 +10,18 @@ Add this to package.json dependencies:
 ```
 
 and run `npm install`
+
+## How to use it
+
+### DEV
+In `next.config.js`, make sure to add this package to transpilePackages:
+```
+const config = withConfig({
+    transpilePackages: ['support-package'], // THIS
+...
+```
+
+Run `npm run build:dev` and run this command in the project from which you're importing support-package:
+```
+npm i PATH_TO_TGZs
+```
