@@ -12,6 +12,7 @@
     }
   },
   "scripts": {
+    "build:dev": "npm run build && npm pack && cd ~/programming/web-mda-site && npm i ~/programming/prototype/support-package-1.0.0.tgz",
     "build": "npm run build:esm && npm run build:cjs && npm run build:assets",
     "build:esm": "tsc && tsc-alias -p tsconfig.json --dir dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && tsc-alias -p tsconfig.json --dir dist/cjs",
