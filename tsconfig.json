@@ -19,7 +19,9 @@
     "declarationMap": true,
     "sourceMap": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@lib/*": ["src/lib/*"],
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

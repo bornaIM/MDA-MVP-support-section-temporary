@@ -10,9 +10,9 @@ import useTranslation from 'next-translate/useTranslation';
 import { Form, Formik } from 'formik';
 import { useFormikContext } from 'formik';
 import { useMemo, useState } from 'react';
-import QuestionMarkPopover from './common/question-mark-popover';
+import QuestionMarkPopover from '../../common/question-mark-popover';
 import useDateInputFormFieldHelpers from '@/utils/use-date-input-form-field-helpers';
-import { DateInputFormField } from './forms/date-input/date-input-form-field';
+import { DateInputFormField } from '../date-input/date-input-form-field';
 
 const SubmitLink = ({ children }: { children: React.ReactNode }) => {
     const { submitForm } = useFormikContext();

@@ -1,0 +1,1 @@
+export const SUPPORT_FORM_LOCAL_STORAGE_MOCK_VALUES_KEY = 'supportFormMockValues';
