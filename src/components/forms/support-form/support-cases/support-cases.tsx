@@ -4,10 +4,9 @@ import {
     Alert,
     Text,
     Box,
-    Heading,
     useTheme,
 } from '@dexcomit/web-ui-lib';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { SupportCasesTableProps } from './types';
 import { getTableRows, getHeaders, getNoDataMessage } from './helpers';

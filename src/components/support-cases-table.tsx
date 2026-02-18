@@ -15,11 +15,13 @@ export const RenderSupportCasesTable = ({
     SHOW_CASE_TABLE_LOCALES,
     Pagination,
     OpenChatbotTrigger,
+    fetchPath
 }: {
     currentLocale: string;
     SHOW_CASE_TABLE_LOCALES: string[];
     Pagination: ({ currentPage, totalPages, onClick, }: OrderHistoryPaginationProps) => JSX.Element;
     OpenChatbotTrigger: ChakraComponent<"div", {}>;
+    fetchPath: string;
 }) => {
     const [supportCases, setSupportCases] =
         useState<SupportCasesResponse | null>();
@@ -31,9 +33,7 @@ export const RenderSupportCasesTable = ({
         const fetchUserCases = async () => {
             if (profile?.gcaid && profile?.accountType !== 'dependent') {
                 try {
-                    const response = await fetch(
-                        `/api/sfdc/get-support-cases?locale=${currentLocale}`
-                    );
+                    const response = await fetch(fetchPath);
                     if (response.ok) {
                         const casesResponse: SupportCasesResponse | null =
                             await response.json();
