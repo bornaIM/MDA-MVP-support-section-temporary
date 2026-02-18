@@ -1,0 +1,92 @@
+{
+    "012": {
+        "G6": {
+            "productType": "sensor"
+        },
+        "G7": {
+            "productType": "wearable"
+        },
+        "D1+": {
+            "productType": "wearable"
+        }
+    },
+    "042": {
+        "G6": {
+            "productType": "sensor"
+        },
+        "G7": {
+            "productType": "wearable"
+        },
+        "D1+": {
+            "productType": "wearable"
+        }
+    },
+    "075": {
+        "G6": {
+            "productType": "sensor"
+        },
+        "G7": {
+            "productType": "wearable"
+        },
+        "D1+": {
+            "productType": "wearable"
+        }
+    },
+    "113": {
+        "G6": {
+            "productType": "system"
+        },
+        "G7": {
+            "productType": "system"
+        },
+        "D1+": {
+            "productType": "system"
+        }
+    },
+    "224": {
+        "G6": {
+            "productType": "sensor"
+        }
+    },
+    "125": {
+        "G7": {
+            "productType": "wearable"
+        },
+        "D1+": {
+            "productType": "wearable"
+        }
+    },
+    "214": {
+        "G6": {
+            "productType": "applicator"
+        },
+        "G7": {
+            "productType": "applicator"
+        },
+        "D1+": {
+            "productType": "applicator"
+        }
+    },
+    "215": {
+        "G6": {
+            "productType": "system"
+        },
+        "G7": {
+            "productType": "system"
+        },
+        "D1+": {
+            "productType": "system"
+        }
+    },
+    "239": {
+        "G7": {
+            "productType": "wearable"
+        },
+        "D1+": {
+            "productType": "wearable"
+        },
+        "G6": {
+            "productType": "sensor"
+        }
+    }
+}
