@@ -12,20 +12,15 @@ import { SupportCasesTableProps } from './types';
 import { getTableRows, getHeaders, getNoDataMessage } from './helpers';
 import { TableCellProps } from '@chakra-ui/react';
 import Trans from 'next-translate/Trans';
-import { OrderHistoryPaginationProps } from '@/components/support-cases-table';
+import { useComponents } from '@/context/components-context';
 
-interface SupportCasesTableExtendedProps extends SupportCasesTableProps {
-    Pagination: ({ currentPage, totalPages, onClick }: OrderHistoryPaginationProps) => JSX.Element;
-    OpenChatbotTrigger: React.ComponentType<any>;
-}
 
 const PAGE_SIZE = 5;
 
 export const SupportCasesTable = ({
     casesResponse,
-    Pagination,
-    OpenChatbotTrigger
-}: SupportCasesTableExtendedProps) => {
+}: SupportCasesTableProps) => {
+    const { Pagination, OpenChatbotTrigger } = useComponents();
     const { t } = useTranslation();
     const { space } = useTheme();
     const tableHeaders: Record<string, string> = t(
