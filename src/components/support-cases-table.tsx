@@ -1,4 +1,4 @@
-import { useTheme, Box, Heading, LoadingWrapper, ChakraComponent } from "@dexcomit/web-ui-lib";
+import { useTheme, Box, Heading, LoadingWrapper } from "@dexcomit/web-ui-lib";
 import { useProfile } from "@dexcomit/web-vendor-framework/customer";
 import useTranslation from "next-translate/useTranslation";
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
@@ -13,14 +13,10 @@ export type OrderHistoryPaginationProps = {
 export const RenderSupportCasesTable = ({
     currentLocale,
     SHOW_CASE_TABLE_LOCALES,
-    Pagination,
-    OpenChatbotTrigger,
     fetchPath
 }: {
     currentLocale: string;
     SHOW_CASE_TABLE_LOCALES: string[];
-    Pagination: ({ currentPage, totalPages, onClick, }: OrderHistoryPaginationProps) => JSX.Element;
-    OpenChatbotTrigger: ChakraComponent<"div", {}>;
     fetchPath: string;
 }) => {
     const [supportCases, setSupportCases] =
@@ -66,8 +62,6 @@ export const RenderSupportCasesTable = ({
                             {supportCases !== undefined && (
                                 <SupportCasesTable
                                     casesResponse={supportCases}
-                                    Pagination={Pagination}
-                                    OpenChatbotTrigger={OpenChatbotTrigger}
                                 />
                             )}
                         </LoadingWrapper>
