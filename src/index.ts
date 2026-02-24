@@ -7,4 +7,5 @@ export { InsertLocationSelector } from './components/forms/support-form/insert-l
 export { SupportSubmitModal } from './components/support-submit-modal';
 export { RenderSupportCasesTable } from './components/support-cases-table';
 export { SupportModal } from './components/forms/support-form/support-modal';
+export { GuestStartSupportTicket } from './components/forms/support-form/guest-start-support-ticket';
 export * from './context/components-context';
