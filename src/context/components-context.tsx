@@ -1,24 +1,47 @@
-import React, { createContext, useContext, ReactNode } from 'react';
+import { ChakraComponent } from '@dexcomit/web-ui-lib';
+import React, { createContext, useContext, ReactNode, Dispatch, SetStateAction } from 'react';
 
+type PaginationProps = {
+    currentPage: number;
+    totalPages: number;
+    onClick: Dispatch<SetStateAction<number>>;
+};
 export interface InjectedComponents {
-    Pagination: React.ComponentType<any>;
-    OpenChatbotTrigger: React.ComponentType<any>;
+    Pagination: ({ currentPage, totalPages, onClick, }: PaginationProps) => JSX.Element;
+    OpenChatbotTrigger: ChakraComponent<"div", {}>
+    RenderSlot: ({ id }: { id: string; }) => JSX.Element
 }
 
-const ComponentContext = createContext<InjectedComponents>({
-    Pagination: () => null,
-    OpenChatbotTrigger: () => null,
-});
+export interface InjectedFunctions {
+    useGetLocalizedUrl(): (fragment?: string) => string;
+}
 
-export const ComponentProvider: React.FC<{
-    components: InjectedComponents;
+export interface SupportContextValue extends InjectedComponents, InjectedFunctions {}
+
+const defaultContextValue: SupportContextValue = {
+    Pagination: () => <></>,
+    OpenChatbotTrigger: () => <></>,
+    RenderSlot: () => <></>,
+    useGetLocalizedUrl: () => (fragment?: string) => ''
+};
+
+const SupportContext = createContext<SupportContextValue>(defaultContextValue);
+
+export const SupportProvider: React.FC<{
+    components?: Partial<InjectedComponents>;
+    functions?: Partial<InjectedFunctions>;
     children: ReactNode
-}> = ({ components, children }) => {
+}> = ({ components = {}, functions = {}, children }) => {
+    const value = {
+        ...defaultContextValue,
+        ...Object.fromEntries(Object.entries(components).filter(([_, v]) => v !== undefined)),
+        ...Object.fromEntries(Object.entries(functions).filter(([_, v]) => v !== undefined))
+    };
     return (
-        <ComponentContext.Provider value={components}>
+        <SupportContext.Provider value={value}>
             {children}
-        </ComponentContext.Provider>
+        </SupportContext.Provider>
     );
 };
 
-export const useComponents = () => useContext(ComponentContext);
+export const useProvider = () => useContext(SupportContext);

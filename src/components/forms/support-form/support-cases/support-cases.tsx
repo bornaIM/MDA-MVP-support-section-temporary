@@ -12,7 +12,7 @@ import { SupportCasesTableProps } from './types';
 import { getTableRows, getHeaders, getNoDataMessage } from './helpers';
 import { TableCellProps } from '@chakra-ui/react';
 import Trans from 'next-translate/Trans';
-import { useComponents } from '@/context/components-context';
+import { useProvider } from '@/context/components-context';
 
 
 const PAGE_SIZE = 5;
@@ -20,7 +20,7 @@ const PAGE_SIZE = 5;
 export const SupportCasesTable = ({
     casesResponse,
 }: SupportCasesTableProps) => {
-    const { Pagination, OpenChatbotTrigger } = useComponents();
+    const { Pagination, OpenChatbotTrigger } = useProvider();
     const { t } = useTranslation();
     const { space } = useTheme();
     const tableHeaders: Record<string, string> = t(

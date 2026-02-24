@@ -6,4 +6,5 @@ export { SelectPatient } from './components/forms/support-form/select-patient';
 export { InsertLocationSelector } from './components/forms/support-form/insert-location-selector';
 export { SupportSubmitModal } from './components/support-submit-modal';
 export { RenderSupportCasesTable } from './components/support-cases-table';
+export { SupportModal } from './components/forms/support-form/support-modal';
 export * from './context/components-context';
