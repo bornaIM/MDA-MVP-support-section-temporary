@@ -26,12 +26,27 @@ export type FieldFormControlSelectProps = Omit<
     options?: FormControlSelectProps['options'];
 } & FieldHookConfig<string>;
 
+interface useDateInputFormFieldHelpersHook {
+    dateSimpleFormat: string;
+        dateFormatLabel: string;
+        formDateFormat: string;
+        dateStandardFormat: string;
+        dateStandardPattern: RegExp;
+        stringToDate: (val: string, customFormat?: string | undefined) => Date;
+        dateToString: (newDate: Date, customFormat?: string | undefined) => string,
+        convertString: (str: string, currentFormat: string, newFormat: string) => string,
+        validateString: (str: string, pattern: RegExp) => boolean,
+        getWeekDayName: (weekDayNameInEnglish: string) => string
+}
+
 export interface InjectedComponents {
     Pagination: ({ currentPage, totalPages, onClick, }: PaginationProps) => JSX.Element;
     OpenChatbotTrigger: ChakraComponent<"div", {}>;
     RenderSlot: ({ id }: { id: string; }) => JSX.Element;
     FieldFormControl: React.FC<FieldFormControlProps>;
-    FieldFormControlSelect({ i18nField, autoSubmit, options, ...props }: FieldFormControlSelectProps): JSX.Element
+    FieldFormControlSelect({ i18nField, autoSubmit, options, ...props }: FieldFormControlSelectProps): JSX.Element,
+    defaultLanguage: string;
+    useDateInputFormFieldHelpers: useDateInputFormFieldHelpersHook,
 }
 
 export interface InjectedFunctions {
@@ -46,7 +61,20 @@ const defaultContextValue: SupportContextValue = {
     RenderSlot: () => <></>,
     FieldFormControl: () => <></>,
     FieldFormControlSelect: () => <></>,
-    useGetLocalizedUrl: () => (fragment?: string) => ''
+    useGetLocalizedUrl: () => (fragment?: string) => '',
+    defaultLanguage: "en-US",
+    useDateInputFormFieldHelpers: {
+        dateSimpleFormat: "",
+        dateFormatLabel: "",
+        formDateFormat: "",
+        dateStandardFormat: "",
+        dateStandardPattern: new RegExp(""),
+        stringToDate: () => new Date(),
+        dateToString: () => "",
+        convertString: () => "",
+        validateString: () => false,
+        getWeekDayName: () => ""
+    }
 };
 
 const SupportContext = createContext<SupportContextValue>(defaultContextValue);
