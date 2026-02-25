@@ -8,4 +8,5 @@ export { SupportSubmitModal } from './components/support-submit-modal';
 export { RenderSupportCasesTable } from './components/support-cases-table';
 export { SupportModal } from './components/forms/support-form/support-modal';
 export { GuestStartSupportTicket } from './components/forms/support-form/guest-start-support-ticket';
+export { IssueCategorySelectorWithTimeModal } from './components/forms/support-form/issue-category/issue-category-selector-with-time-modal';
 export * from './context/components-context';
