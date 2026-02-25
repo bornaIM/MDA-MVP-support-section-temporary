@@ -33,7 +33,7 @@ import { SFDC_GENDER } from '@lib/forms/support-form/support-form-dictionaries';
 import { getInitialPhoneValueWithException } from '@lib/forms/support-form/helpers/get-initial-phone-value';
 import { ProfileWithSentinelData } from '@lib/forms/support-form/types';
 import { DATE_INPUT_MIN_DATE, DATE_INPUT_MAX_DATE } from '../date-input/date-input-form-field/constants';
-import { useComponents } from '@/context/components-context';
+import { useProvider } from '@/context/components-context';
 
 export type SupportAuthInfoProps = PatientInformationFormData &
     DiabetesInformationFormData &
@@ -67,7 +67,7 @@ export default function CollectAuthUserInfo({
 
     const submitAddressButtonRef = useRef<HTMLButtonElement>(null);
 
-    const { useValidation, AddressProvider, useManualAddressValidation } = useComponents();
+    const { useValidation, AddressProvider, useManualAddressValidation } = useProvider();
     const { validationFailures, setCurrentAddressHandler, manageValidationFailures } = useManualAddressValidation({ type: "shipping" });
     const { convertString, dateStandardFormat, dateSimpleFormat, dateStandardPattern } = useDateInputFormFieldHelpers();
 

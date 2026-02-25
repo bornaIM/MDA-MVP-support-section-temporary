@@ -22,7 +22,7 @@ import {
     SupportSelectShippingAddressProps,
     ViewMode,
 } from "./helpers";
-import { useComponents } from "@/context/components-context";
+import { useProvider } from "@/context/components-context";
 
 export const SupportSelectShippingAddress = ({
     mode: defaultMode,
@@ -45,7 +45,7 @@ export const SupportSelectShippingAddress = ({
         AddressSelectRadio,
         MAX_ADDRESS_NUMBER,
         AddressValidationFailures
-    } = useComponents();
+    } = useProvider();
 
     const { space } = useTheme();
     const { t } = useTranslation();

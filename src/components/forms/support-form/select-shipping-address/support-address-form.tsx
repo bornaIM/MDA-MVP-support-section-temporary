@@ -18,7 +18,7 @@ import { FormValues, AddressValues, AddressFormProps } from "@context/types/addr
 import { useSupportForm } from "@lib/forms/support-form/support-form-provider";
 
 import { useFeatureFlags } from "@dexcomit/web-vendor-framework/feature/vendor/local";
-import { useComponents } from "@/context/components-context";
+import { useProvider } from "@/context/components-context";
 
 export type SupportFormValues = Omit<FormValues, "selectedAddress">;
 type SupportAddressFormProps = Omit<AddressFormProps, "submitAction"> & {
@@ -78,7 +78,7 @@ export function SupportAddressForm({
         TooManyAddressesAlert,
         AddressValidationFailures,
         useGetStateProvinceFromCode
-    } = useComponents();
+    } = useProvider();
     
     const formatProvinceCode = useGetStateProvinceFromCode();
     const { logger } = useContext(UtilProviderContext);

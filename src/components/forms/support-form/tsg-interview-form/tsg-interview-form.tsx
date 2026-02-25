@@ -20,7 +20,7 @@ import { useDynamicTSGForm } from './use-dynamic-tsg-form';
 import { IssueFlags } from '../issue-category/types';
 import { SFDC_ISSUE_CODES } from '@lib/forms/support-form/support-form-dictionaries';
 import { trimISOString } from '@lib/forms/support-form/helpers/format-dates';
-import { useComponents } from '@/context/components-context';
+import { useProvider } from '@/context/components-context';
 
 interface TsgInterviewFormProps {
     templates: SalesforceApiTemplate[];
@@ -85,7 +85,7 @@ export function TsgInterviewForm({
     const { t } = useTranslation();
 
     const { uiState } = useSupportForm();
-    const { useDateInputFormFieldHelpers } = useComponents();
+    const { useDateInputFormFieldHelpers } = useProvider();
 
     // Sort templates and memoize
     const sortedTemplates = useMemo(

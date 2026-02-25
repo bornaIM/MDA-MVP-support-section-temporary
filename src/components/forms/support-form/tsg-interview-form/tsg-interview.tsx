@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { IssueFlags } from '../issue-category/types';
 import { Alert, LoadingWrapper } from '@dexcomit/web-ui-lib';
 import useTranslation from 'next-translate/useTranslation';
-import { useComponents } from '@/context/components-context';
+import { useProvider } from '@/context/components-context';
 
 type TSGQuestionParams = {
     productGeneration: ProductGenerationType;
@@ -78,7 +78,7 @@ export function TsgInterview({
         SalesforceApiTemplate[] | undefined | null
     >();
 
-    const { defaultLanguage } = useComponents();
+    const { defaultLanguage } = useProvider();
 
     const { t } = useTranslation();
 

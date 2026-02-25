@@ -18,7 +18,7 @@ import { convertPhoneToInternational } from '@lib/common/phone-converters/phone-
 import { useFeatureFlags } from '@dexcomit/web-vendor-framework/feature/vendor/local';
 import { SFDC_GENDER } from '@lib/forms/support-form/support-form-dictionaries';
 import { getInitialPhoneValue } from '@lib/forms/support-form/helpers/get-initial-phone-value';
-import { useComponents } from '@/context/components-context';
+import { useProvider } from '@/context/components-context';
 
 export type SupportGuestInfoProps = PatientInformationFormData &
     DiabetesInformationFormData & ReporterInformationFormData & {
@@ -46,7 +46,7 @@ export default function CollectGuestUserInfo({ onSubmit }: CollectGuestUserInfoP
         localeConfig: { locale },
     } = useFramework();
 
-    const { useValidation, AddressProvider, useManualAddressValidation } = useComponents();
+    const { useValidation, AddressProvider, useManualAddressValidation } = useProvider();
 
     const { validationFailures, setCurrentAddressHandler } = useManualAddressValidation({ type: "shipping" });
 

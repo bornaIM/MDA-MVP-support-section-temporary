@@ -10,7 +10,7 @@ import useTranslation from "next-translate/useTranslation";
 import { DateInputManual } from "@components/forms/date-input/date-input-form-field/date-input-manual";
 import useDateInputFormFieldHelpers from "@/utils/use-date-input-form-field-helpers";
 import { useFeatureFlags } from "@dexcomit/web-vendor-framework/feature/vendor/local";
-import { useComponents } from "@/context/components-context";
+import { useProvider } from "@/context/components-context";
 
 export interface PatientInformationFormData {
     reporterType: string;
@@ -58,7 +58,7 @@ export function PatientInformation({
         useCustomPhoneFormat && !phoneExceptions?.phone;
     const useCustomPhoneFormatForSecondaryPhone =
         useCustomPhoneFormat && !phoneExceptions?.secondaryPhone;
-    const { FieldFormControl, FieldFormControlSelect } = useComponents();
+    const { FieldFormControl, FieldFormControlSelect } = useProvider();
 
     function isValid(name: string) {
         return (

@@ -1,5 +1,4 @@
-import { ChakraComponent, FormControlInputProps, FormControlSelectProps } from '@dexcomit/web-ui-lib';
-import { FieldHookConfig } from 'formik';
+import { ChakraComponent } from '@dexcomit/web-ui-lib';
 import React, { createContext, useContext, ReactNode, Dispatch, SetStateAction } from 'react';
 import type { UseValidationType } from "./types/validationTypes";
 import { AddressSelectRadioProps, IAddressContext, IAddressProvider } from "./types/addressTypes";
@@ -14,48 +13,15 @@ type PaginationProps = {
     totalPages: number;
     onClick: Dispatch<SetStateAction<number>>;
 };
-type ControlType = 'input' | 'textarea';
-type FieldFormControlProps = {
-    controlType?: ControlType;
-    errorMessage?: string;
-    i18nField: string;
-    trim?: boolean;
-    autoSubmit?: boolean;
-    showIcons?: boolean;
-    ignorePhoneHelpers?: boolean;
-} & Omit<FormControlInputProps, 'name' | 'label' | 'validate'> & FieldHookConfig<string>;
-export type FieldFormControlSelectProps = Omit<
-    FormControlSelectProps,
-    'options'
-> & {
-    i18nField: string;
-    autoSubmit?: boolean;
-    options?: FormControlSelectProps['options'];
-} & FieldHookConfig<string>;
-
-interface useDateInputFormFieldHelpersHook {
-    dateSimpleFormat: string;
-        dateFormatLabel: string;
-        formDateFormat: string;
-        dateStandardFormat: string;
-        dateStandardPattern: RegExp;
-        stringToDate: (val: string, customFormat?: string | undefined) => Date;
-        dateToString: (newDate: Date, customFormat?: string | undefined) => string,
-        convertString: (str: string, currentFormat: string, newFormat: string) => string,
-        validateString: (str: string, pattern: RegExp) => boolean,
-        getWeekDayName: (weekDayNameInEnglish: string) => string
-}
 
 export interface InjectedComponents {
     Pagination: ({ currentPage, totalPages, onClick, }: PaginationProps) => JSX.Element;
     OpenChatbotTrigger: ChakraComponent<"div", {}>;
     RenderSlot: ({ id }: { id: string; }) => JSX.Element;
-    FieldFormControl: React.FC<FieldFormControlProps>;
     FieldFormControlSelect({ i18nField, autoSubmit, options, ...props }: FieldFormControlSelectProps): JSX.Element,
     defaultLanguage: string;
     useDateInputFormFieldHelpers: useDateInputFormFieldHelpersHook;
     FieldFormControl: React.FC<FieldFormControlProps>;
-    FieldFormControlSelect: React.FC<FieldFormControlProps>;
     useValidation: UseValidationType;
     mapOptionalValues: (object: any, fields: string[]) => any;
     AddressContext: React.Context<IAddressContext>;
@@ -115,8 +81,6 @@ const defaultContextValue: SupportContextValue = {
         validateString: () => false,
         getWeekDayName: () => ""
     },
-    FieldFormControl: () => null,
-    FieldFormControlSelect: () => null,
     useValidation: async () => null,
     mapOptionalValues: () => null,
     AddressContext,
