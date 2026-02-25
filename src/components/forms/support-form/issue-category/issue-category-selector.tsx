@@ -19,6 +19,7 @@ export const IssueCategorySelector = forwardRef<
     const { OpenChatbotTrigger } = useProvider();
     const [issue, setIssue] = useState(currentIssue || '');
     const { t } = useTranslation();
+
     const translationObject: { code: string; label: string }[] = t(
         'support:issues.options',
         {},

@@ -15,7 +15,8 @@
     "dist"
   ],
   "scripts": {
-    "build:dev": "npm run build && npm pack && cd ~/programming/web-mda-site && npm i ~/programming/prototype/ingemark-support-package-1.0.0.tgz",
+    "build:devMarin": "npm run build && npm pack && cd ~/programming/web-mda-site && npm i ~/programming/prototype/ingemark-support-package-1.0.0.tgz",
+    "build:devBorna": "npm run build && npm pack && cd ../web-mda-site && npm i ../test-support-package/ingemark-support-package-1.0.0.tgz",
     "build": "npm run build:esm && npm run build:cjs && npm run build:assets",
     "build:esm": "tsc && tsc-alias -p tsconfig.json --dir dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && tsc-alias -p tsconfig.json --dir dist/cjs",
@@ -26,16 +27,18 @@
     "react-datepicker": "^7.6.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@dexcomit/web-ui-lib": "^2025.9.46",
+    "@dexcomit/web-ui-lib": "^2025.9.45",
     "@dexcomit/web-util-lib": "^0.0.19",
-    "@dexcomit/web-vendor-framework": "^2026.3.5",
+    "@dexcomit/web-vendor-framework": "^2026.4.2",
     "formik": "^2.2.9",
+    "json-schema-yup-transformer": "^1.6.4",
     "next-translate": "^1.6.0",
-    "react-datepicker": "^7.6.0"
+    "react": "^18.2.0",
+    "react-datepicker": "^7.6.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/json-schema": "^7.0.15",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
