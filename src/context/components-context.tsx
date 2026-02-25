@@ -1,6 +1,13 @@
 import { ChakraComponent, FormControlInputProps, FormControlSelectProps } from '@dexcomit/web-ui-lib';
 import { FieldHookConfig } from 'formik';
 import React, { createContext, useContext, ReactNode, Dispatch, SetStateAction } from 'react';
+import type { UseValidationType } from "./types/validationTypes";
+import { AddressSelectRadioProps, IAddressContext, IAddressProvider } from "./types/addressTypes";
+import { useDateInputFormFieldHelpersHook } from "./types/dateTypes";
+import {
+    FieldFormControlProps,
+    FieldFormControlSelectProps,
+} from "./types/formFilesTypes";
 
 type PaginationProps = {
     currentPage: number;
@@ -46,8 +53,41 @@ export interface InjectedComponents {
     FieldFormControl: React.FC<FieldFormControlProps>;
     FieldFormControlSelect({ i18nField, autoSubmit, options, ...props }: FieldFormControlSelectProps): JSX.Element,
     defaultLanguage: string;
-    useDateInputFormFieldHelpers: useDateInputFormFieldHelpersHook,
+    useDateInputFormFieldHelpers: useDateInputFormFieldHelpersHook;
+    FieldFormControl: React.FC<FieldFormControlProps>;
+    FieldFormControlSelect: React.FC<FieldFormControlProps>;
+    useValidation: UseValidationType;
+    mapOptionalValues: (object: any, fields: string[]) => any;
+    AddressContext: React.Context<IAddressContext>;
+    AddressProvider: React.ComponentType<IAddressProvider>;
+    useManualAddressValidation: ({ type }: { type: string }) => {
+        validationFailures: string[];
+        setCurrentAddressHandler: () => any;
+        manageValidationFailures: () => any;
+    };
+    // address components
+    NewAddressInputForm: React.ComponentType<any>,
+    AddressFormProps: React.ComponentType<any>,
+    MAX_ADDRESS_NUMBER: number,
+    TooManyAddressesAlert: React.ComponentType<any>,
+    AddressSelectRadio: React.ComponentType<AddressSelectRadioProps>,
+    AddressValidationFailures: React.ComponentType<any>,
+    useGetStateProvinceFromCode: () => any
 }
+
+const AddressContext = createContext<IAddressContext>({
+    context: "",
+    cancelLinkProps: {},
+    i18nBase: "",
+    loqateEnabled: false,
+    loqateKey: "",
+    schemaAddress: {},
+    validationSchema: {},
+    isLoqateOptionSelected: false,
+    setIsLoqateOptionSelected: () => void 0,
+    autoSubmit: false,
+    runValidation: true,
+});
 
 export interface InjectedFunctions {
     useGetLocalizedUrl(): (fragment?: string) => string;
@@ -74,7 +114,25 @@ const defaultContextValue: SupportContextValue = {
         convertString: () => "",
         validateString: () => false,
         getWeekDayName: () => ""
-    }
+    },
+    FieldFormControl: () => null,
+    FieldFormControlSelect: () => null,
+    useValidation: async () => null,
+    mapOptionalValues: () => null,
+    AddressContext,
+    AddressProvider: () => null,
+    useManualAddressValidation: (type) => ({
+        validationFailures: [],
+        setCurrentAddressHandler: () => null,
+        manageValidationFailures: () => null,
+    }),
+    NewAddressInputForm: () => null,
+    AddressFormProps: () => null,
+    MAX_ADDRESS_NUMBER: 0,
+    TooManyAddressesAlert: () => null,
+    AddressSelectRadio: () => null,
+    AddressValidationFailures: () => null,
+    useGetStateProvinceFromCode: () => null
 };
 
 const SupportContext = createContext<SupportContextValue>(defaultContextValue);

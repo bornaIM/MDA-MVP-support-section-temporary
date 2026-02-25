@@ -68,7 +68,7 @@ function TSGInterviewQuestionsOptionsFilter(
     });
 }
 
-export default function TsgInterview({
+export function TsgInterview({
     onSubmit,
     productGeneration,
     code,
@@ -103,6 +103,7 @@ export default function TsgInterview({
 
     return (
         <LoadingWrapper isLoading={questionData === undefined}>
+            <p>BORNA proba</p>
             {questionData && (
                 <TsgInterviewForm
                     templates={questionData}

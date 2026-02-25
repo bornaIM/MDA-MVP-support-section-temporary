@@ -78,6 +78,8 @@ export default function ReporterInformation({
                     type="text"
                     isValid={isValid('reporterType')}
                     onBlur={handleBlur}
+                    // TODO: see why this is throwing error
+                    // @ts-ignore
                     options={reporterOptions}
                 />
                 {formData.reporterType ===

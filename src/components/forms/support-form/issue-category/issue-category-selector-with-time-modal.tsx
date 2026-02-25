@@ -63,6 +63,7 @@ export function IssueCategorySelectorWithTimeModal({
 
     return (
         <>
+        <p>u issues categoriju sam</p>
             {showTimeModal && (
                 <IssueCategoryTimeModal
                     issue={issue}
